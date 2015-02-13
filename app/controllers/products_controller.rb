@@ -1,4 +1,8 @@
 class ProductsController < ApplicationController
+	before_action :get_product, :only => [:edit, :update, :destroy]
+
+
+
   def read
   	@products = Product.where(published: true)
   	
@@ -19,11 +23,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-  	@product = Product.find(params[:id])
   	render action: 'update'
   end
   def update
-  	@product = Product.find(params[:id])
   	if @product.update(parameters)
     	redirect_to '/'
 	  else
@@ -31,12 +33,14 @@ class ProductsController < ApplicationController
 	  end
   end
 
-  def delete
+  def destroy
+    @product.destroy
+    redirect_to '/'
   end
 
   private
   def get_product
-  	@product = Product.find(parameters)
+	@product = Product.find(params[:id])
   end
 
   private

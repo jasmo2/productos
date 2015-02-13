@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'products#read'
   resources :products
   patch '/products/:id/edit' => 'products#update'
+  delete '/products/:id/destroy' => 'products#destroy'
 =begin
     get '/read' => 'products#read',  as: 'products'
 

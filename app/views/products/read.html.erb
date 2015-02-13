@@ -10,6 +10,11 @@
 				<span> 
 					<%= link_to 'Update Product', edit_product_path(item) %>
 				</span>
+				<span> 
+					<%= link_to 'Destroy Product', item,
+               			method: :delete,
+               			data: { confirm: 'Are you sure?' }  %>
+				</span>
 				<ul>
 					<%
 					item.attributes.each do |key, value| 
