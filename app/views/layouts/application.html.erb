@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Productos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<ul>
+	<li><%= link_to 'Listed Products', root_path %></li>
+	<li><%= link_to 'Register Product', new_product_path %></li>
+	<li>Destroy</li>
+</ul>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

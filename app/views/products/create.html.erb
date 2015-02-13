@@ -1,0 +1,23 @@
+<h1>Creating a new Product </h1>
+<%= form_for @product do |p| %>
+	<ul>
+		<li>
+	 		Name: <%= p.text_field :name %>
+		</li>
+		<li>
+	 		Price : <%= p.text_field :price %>
+		</li>
+		<li>
+	 		Description : <br>	 <%= p.text_area :description %>
+		</li>
+		<li>
+	 		Published?    : <%= p.check_box :published? %>
+		</li>
+		<li>
+    		<%= p.submit %>
+		</li>
+	</ul>
+
+  
+
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Products#read</h1>
+<p>
+	<ul>
+		 <% if !@products.blank? %>
+		  <% for item in @products %>
+			<li>
+				<p>
+					<%= item.name%>
+				</p>
+				<span> 
+					<%= link_to 'Update Product', edit_product_path(item) %>
+				</span>
+				<ul>
+					<%
+					item.attributes.each do |key, value| 
+						if key == "description" || key == "price" 
+					%>
+							<li><%="#{key}: #{value}"%></li> 
+					<%
+						 end 
+					end 
+					%>
+				</ul>
+			</li>
+		  <% end %>
+		<% else %>
+		  <h2>You have not any products to list yet.</h2>
+		<% end %> 
+		
+	</ul>
+</p>
